@@ -63,6 +63,7 @@ int main(int argc, char* argv[]) {
     cout << "Multiplication (Matrix 1 * Matrix 2):" << endl;
     multResult.print_matrix();
     cout << endl;
+
     int sumMajor = mat1.sum_diagonal_major();
     int sumMinor = mat1.sum_diagonal_minor();
     cout << "Sum of major diagonal (Matrix 1): " << sumMajor << endl;

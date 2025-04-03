@@ -1,6 +1,7 @@
 #include "matrix.hpp"
 #include <iostream>
 #include <iomanip>
+#include <stdexcept>
 
 Matrix::Matrix(size_t N) : n(N), data(N, std::vector<int>(N, 0)) {}
 
@@ -40,16 +41,14 @@ Matrix Matrix::operator*(const Matrix &rhs) const {
 
 void Matrix::set_value(std::size_t i, std::size_t j, int val) {
     if(i >= n || j >= n) {
-        std::cerr << "Index out of bounds in set_value." << std::endl;
-        return;
+        throw std::out_of_range("Index out of bounds in set_value");
     }
     data[i][j] = val;
 }
 
 int Matrix::get_value(std::size_t i, std::size_t j) const {
     if(i >= n || j >= n) {
-        std::cerr << "Index out of bounds in get_value." << std::endl;
-        return 0;
+        throw std::out_of_range("Index out of bounds in get_value");
     }
     return data[i][j];
 }
